@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecetasTable extends Migration
+class CreateProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,17 @@ class CreateRecetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('recetas', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->unsignedBigInteger('receta_id');
+
+            $table->foreign('receta_id')
+              ->references('id')
+              ->on('recetas')
+              ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +35,6 @@ class CreateRecetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recetas');
+        Schema::dropIfExists('productos');
     }
 }
