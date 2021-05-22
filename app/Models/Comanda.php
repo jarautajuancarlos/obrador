@@ -13,4 +13,10 @@ class Comanda extends Model
     public function user(){
       return $this->belongsTo('App\Models\User');
     }
+
+    // RELACION MUCHOS A MUCHOS CON PRODUCTOS
+    public function productos(){
+      return $this->belongsToMany('App\Models\Producto');
+    }
+
 }

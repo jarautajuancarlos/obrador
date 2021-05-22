@@ -16,9 +16,6 @@ class CreateComandasTable extends Migration
         Schema::create('comandas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('producto');
-            $table->integer('cantidad');
-
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')

@@ -17,7 +17,9 @@ class CreateIngredientesTable extends Migration
             $table->id();
 
             $table->string('name');
-            
+
+            $table->float('proporcion');
+
             $table->timestamps();
         });
     }

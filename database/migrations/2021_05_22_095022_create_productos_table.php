@@ -17,12 +17,11 @@ class CreateProductosTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->unsignedBigInteger('receta_id');
 
-            $table->foreign('receta_id')
-              ->references('id')
-              ->on('recetas')
-              ->onDelete('cascade');
+            $table->integer('cantidad');
+
+            $table->integer('peso');
+
 
             $table->timestamps();
         });

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
+
+    // RELACION MUCHOA A MUCHOS INVERSA
+    public function productos(){
+      return $this->belongsToMany('App\Models\Producto');
+    }
 }
